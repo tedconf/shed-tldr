@@ -1,0 +1,12 @@
+{
+  "name": "ted-app-generator",
+  "version": "0.1.0",
+  "description": "Generator and scaffolding for react apps, TED-style",
+  "main": "index.js",
+  "repository": "http://github.com/tedconf/ted-app-generator",
+  "author": "TED Tech Team",
+  "license": "MIT",
+  "devDependencies": {
+    "plop": "^1.7.4"
+  }
+}
