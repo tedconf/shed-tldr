@@ -6,9 +6,148 @@
   "repository": "http://github.com/tedconf/--APP_NAME--",
   "author": "TED Tech Team",
   "license": "MIT",
+  "scripts": {
+    "generate": "plop --plopfile config/plopfile.js",
+    "gen": "yarn generate",
+    "g": "yarn generate",
+    "start": "yarn dev",
+    "dev": "env NODE_ENV=development webpack-dev-server",
+    "build": "rimraf dist && env NODE_ENV=production webpack --colors --display-provided-exports --display-used-exports",
+    "pretest": "yarn lint; yarn lint:typecheck",
+    "lint": "eslint src",
+    "lint:fix": "yarn lint -- --fix",
+    "deploy": "echo 'not conrigured, please edit this task in your package.json'",
+    "lint:typecheck": "flow; test $? -eq 0 -o $? -eq 2",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/config/test-setup.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/hot.js"
+    ],
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/enzyme/"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ],
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "shed",
+      "transform-flow-strip-types",
+      "syntax-flow",
+      "babel-plugin-transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-runtime"
+    ],
+    "env": {
+      "dev": {
+        "plugins": [
+          "react-hot-loader/babel"
+        ]
+      },
+      "production": {
+        "plugins": [
+          "shed",
+          "transform-flow-strip-types",
+          "syntax-flow",
+          [
+            "lodash",
+            {
+              "id": [
+                "lodash",
+                "recompose"
+              ]
+            }
+          ],
+          "transform-react-constant-elements",
+          "transform-react-remove-prop-types"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "plugins": [
+      "flowtype"
+    ],
+    "env": {
+      "jest": true,
+      "browser": true
+    },
+    "globals": {
+      "it": true,
+      "describe": true,
+      "test": true,
+      "expect": true,
+      "react": true,
+      "mount": true,
+      "shallow": true,
+      "render": true,
+      "React": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+      "plugin:flowtype/recommended",
+      "airbnb"
+    ],
+    "rules": {
+      "react/no-unused-prop-types": 0,
+      "no-debugger": 1,
+      "no-mixed-operators": 0,
+      "no-nested-ternary": 0,
+      "no-confusing-arrow": 0,
+      "react/jsx-filename-extension": 0,
+      "import/extensions": 0,
+      "import/no-named-as-default-member": 0,
+      "import/no-named-as-default": 0,
+      "import/no-unresolved": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/no-absolute-path": 0,
+      "import/no-duplicates": 0,
+      "react/jsx-no-undef": 0,
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "Shed"
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "webpack": {
+          "config": "webpack.config.js"
+        }
+      }
+    }
+  },
   "devDependencies": {
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.2.1",
+    "babel-jest": "^20.0.0",
     "babel-loader": "^6.2.9",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
@@ -21,8 +160,8 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "classnames": "^2.2.5",
-    "enzyme": "^2.7.1",
-    "enzyme-to-json": "^1.4.5",
+    "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-import-resolver-webpack": "^0.8.0",
@@ -35,7 +174,9 @@
     "global": "^4.3.1",
     "html-webpack-plugin": "^2.24.1",
     "isparta": "^4.0.0",
+    "jest": "^20.0.0",
     "plop": "1.x.x",
+    "react-addons-test-utils": "^15.5.1",
     "react-hot-loader": "next",
     "redux-devtools-extension": "2.13.x",
     "webpack": "2.x.x",
@@ -55,9 +196,9 @@
     "react-router-redux": "5.0.0-alpha.6",
     "react-shed": "2.x.x",
     "redux": "3.x.x",
-    "redux-thunk": "2.x.x",
     "redux-action-types-creator": "1.1.x",
     "redux-create-reducer": "1.1.x",
+    "redux-thunk": "2.x.x",
     "styled-components": "1.4.x"
   }
 }
