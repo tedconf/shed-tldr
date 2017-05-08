@@ -1,0 +1,35 @@
+@font-face {
+  font-family:'Helvetica Neue Custom';
+  src: url('./45Light.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Custom';
+  src: url('./55Roman.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Custom';
+  src: url('./75Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Custom';
+  src: url('./85Heavy.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0-10FFFF;
+}

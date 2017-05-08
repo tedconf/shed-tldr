@@ -22,6 +22,7 @@ const hotRender = (root) => {
     );
   } catch (e) {
     render(<RedBox error={e} />, root);
+    throw new Error(e);
   }
 };
 

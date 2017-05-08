@@ -89,7 +89,10 @@ const COMMON_CONFIG = {
         include: APP_PATH,
         use: [
           {
-            loader: 'file-loader?name=public/fonts/[name].[ext]',
+            loader: 'file-loader',
+            options: {
+              name: 'public/fonts/[name].[ext]',
+            },
           },
         ],
       },
