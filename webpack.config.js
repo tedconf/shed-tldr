@@ -108,7 +108,7 @@ const COMMON_CONFIG = {
     alias: {
       components: path.resolve(APP_PATH, 'components'),
       config: path.resolve(APP_PATH, 'config'),
-      reducers: path.resolve(APP_PATH, 'reducers'),
+      modules: path.resolve(APP_PATH, 'modules'),
     },
   },
 

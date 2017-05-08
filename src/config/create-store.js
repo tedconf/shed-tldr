@@ -1,20 +1,14 @@
-// @flow
 import {
-  combineReducers,
   createStore,
   applyMiddleware,
 } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import {
-  routerReducer,
   routerMiddleware,
 } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
-
-const rootReducer = combineReducers({
-  router: routerReducer,
-});
+import rootReducer from 'modules/application';
 
 const history = createHistory();
 
@@ -28,6 +22,15 @@ const store = createStore(
   undefined,
   composeWithDevTools(applyMiddleware(...middleware)),
 );
+
+
+if (process.env.NODE_ENV !== 'production' && module.hot) {
+  module.hot.accept('modules/application', () => {
+    /* eslint-disable global-require */
+    store.replaceReducer(require('modules/application'));
+    /* eslint-enable global-require */
+  });
+}
 
 export {
   store as default,
