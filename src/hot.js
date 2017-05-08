@@ -1,33 +1,68 @@
-import React from 'react';
-import { render } from 'react-dom';
+/*
+ * import React from 'react';
+ * import { render } from 'react-dom';
+ * import { AppContainer } from 'react-hot-loader';
+ *
+ * import store, { history } from 'config/create-store';
+ * import Application from 'components/application';
+ *
+ *
+ * const hotRender = (root) => {
+ *   [> eslint-disable global-require <]
+ *   const RedBox = require('redbox-react').default;
+ *   [> eslint-enable global-require <]
+ *   try {
+ *     render(
+ *       <AppContainer>
+ *         <Application
+ *           store={store}
+ *           history={history}
+ *         />
+ *       </AppContainer>,
+ *       root,
+ *     );
+ *   } catch (e) {
+ *     render(<RedBox error={e} />, root);
+ *     throw new Error(e);
+ *   }
+ * };
+ *
+ * hotRender(document.getElementById('root'));
+ *
+ * if (module.hot) {
+ *   module.hot.accept('components/application', hotRender);
+ * }
+ */
+
 import { AppContainer } from 'react-hot-loader';
-
-import store, { history } from 'config/create-store';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Application from 'components/application';
+import store, { history } from 'config/create-store';
 
-
-const hotRender = (root) => {
+const rootEl = document.getElementById('root');
+const render = (Component) => {
   /* eslint-disable global-require */
   const RedBox = require('redbox-react').default;
   /* eslint-enable global-require */
   try {
-    render(
+    ReactDOM.render(
       <AppContainer>
-        <Application
+        <Component
           store={store}
           history={history}
         />
       </AppContainer>,
-      root,
+      rootEl,
     );
   } catch (e) {
-    render(<RedBox error={e} />, root);
+    render(<RedBox error={e} />, rootEl);
     throw new Error(e);
   }
 };
 
-hotRender(document.getElementById('root'));
+render(Application);
 
 if (module.hot) {
-  module.hot.accept('components/application', hotRender);
+  module.hot.accept('components/application', () => render(Application));
 }

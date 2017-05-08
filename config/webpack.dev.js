@@ -12,6 +12,8 @@ const DEVELOPMENT_CONFIG = {
   entry: {
     client: [
       'react-hot-loader/patch',
+      'webpack-dev-server/client?http://localhost:1984',
+      'webpack/hot/only-dev-server',
       HOT_ONLY_ENTRY,
     ],
   },
@@ -21,8 +23,7 @@ const DEVELOPMENT_CONFIG = {
   devServer: {
     hot: true,
     port: 1984,
-    inline: true,
-    host: '0.0.0.0',
+    host: 'localhost',
     historyApiFallback: true,
     stats: {
       assets: true,
@@ -40,6 +41,7 @@ const DEVELOPMENT_CONFIG = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HTMLWebpackPlugin({
       title: '--APP_NAME--',
       template: './config/index.ejs',
