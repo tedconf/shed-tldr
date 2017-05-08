@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const DEVELOPMENT_CONFIG = require('./config/webpack.dev');

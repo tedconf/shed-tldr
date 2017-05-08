@@ -2,14 +2,15 @@
 .*node_modules/fbjs.*
 .*node_modules/systemjs*
 .*node_modules/styled-components*
+.*node_modules/offline-plugin*
 .*.templates/*
 
 [include]
-../node_modules/
-../src/
-../config/
-../components/
-../screens/
+./node_modules/
+./src/
+./config/
+./components/
+./screens/
 
 [libs]
 types
