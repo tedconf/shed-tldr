@@ -1,20 +1,20 @@
 // @flow
 import React from 'react';
 import Shed from 'react-shed';
-{{#ifItem 'connected' component_features}}
+{{#ifItem 'connected' componentFeatures}}
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 {{/ifItem}}
 
-const {{pascalCase component_name}} = ({
+const {{pascalCase componentName}} = ({
   sampleProp,
-{{#ifItem 'connected' component_features}}
+{{#ifItem 'connected' componentFeatures}}
   sampleEffect,
 {{/ifItem}}
 }) => (
   <div.shed>
     {sampleProp}
-{{#ifItem 'connected' component_features}}
+{{#ifItem 'connected' componentFeatures}}
     <button
       onClick={
         () => onEffectExecute(sampleProp)
@@ -26,7 +26,7 @@ const {{pascalCase component_name}} = ({
   </div.shed>
 );
 
-{{#ifItem 'connected' component_features}}
+{{#ifItem 'connected' componentFeatures}}
 const mapStateToProps = state => ({
   sampleProp: state.sampleProp,
 });
@@ -38,12 +38,12 @@ const mapDispatchToProps = {
   }),
 };
 
-const Connected{{pascalCase component_name}} = compose(
+const Connected{{pascalCase componentName}} = compose(
   connect(mapStateToProps, mapDispatchToProps),
-)({{pascalCase component_name}});
+)({{pascalCase componentName}});
 
 {{/ifItem}}
 export {
-  {{#ifItem 'connected' component_features}}Connected{{/ifItem}}{{pascalCase component_name}} as default,
-  {{pascalCase component_name}} as Component,
+  {{#ifItem 'connected' componentFeatures}}Connected{{/ifItem}}{{pascalCase componentName}} as default,
+  {{pascalCase componentName}} as Component,
 };

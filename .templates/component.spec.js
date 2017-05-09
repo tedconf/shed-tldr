@@ -1,9 +1,9 @@
-import { Component as {{pascalCase component_name}} } from './{{kebabCase component_name}}';
+import { Component as {{pascalCase componentName}} } from './{{kebabCase componentName}}';
 
-describe('{{pascalCase component_name}}', () => {
+describe('{{pascalCase componentName}}', () => {
   it('should render', () => {
     const actual = shallow(
-      <{{pascalCase component_name}} />,
+      <{{pascalCase componentName}} />,
     );
     expect(actual).toMatchSnapshot();
   });

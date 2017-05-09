@@ -1,11 +1,11 @@
-{{#ifItem 'asynch' component_features}}
+{{#ifItem 'asynch' componentFeatures}}
 import React from 'react';
 import Loadable from 'react-loadable';
 
 export default Loadable({
-  loader: () => import('./{{kebabCase component_name}}'),
-  LoadingComponent: () => <div>Loading {{titleCase component_name}}…</div>,
+  loader: () => import('./{{kebabCase componentName}}'),
+  LoadingComponent: () => <div>Loading {{titleCase componentName}}…</div>,
 });
 {{else}}
-export * from './{{kebabCase component_name}}.js';
+export * from './{{kebabCase componentName}}';
 {{/ifItem}}
