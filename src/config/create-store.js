@@ -20,7 +20,14 @@ const middleware = [
 const store = createStore(
   rootReducer,
   undefined,
-  composeWithDevTools(applyMiddleware(...middleware)),
+  composeWithDevTools({
+    actionCreators: {
+    },
+    maxAge: 100,
+    serialize: true,
+    autoPause: true,
+    test: false,
+  })(applyMiddleware(...middleware)),
 );
 
 

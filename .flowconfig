@@ -1,22 +1,27 @@
 [ignore]
-.*node_modules/fbjs.*
-.*node_modules/systemjs*
-.*node_modules/offline-plugin*
-.*.templates/*
+.*/.templates/*
+.*/node_modules/babel-plugin-flow-react-proptypes/src/__test__/.*
+.*/node_modules/babel-plugin-transform-react-remove-prop-types/src/.*
+.*/node_modules/fbjs.*
+.*/node_modules/flow-remove-types/.*
+.*/node_modules/offline-plugin/.*
+.*/node_modules/react-native/.*
+.*/node_modules/rollup-plugin-flow/.*
+.*/node_modules/styled-components/.*
+.*/node_modules/systemjs*
 
 [include]
-./node_modules/
 ./src/
 ./config/
-./components/
-./screens/
+./src/components/
+./src/screens/
 
 [libs]
 types
 flow-typed
 
 [options]
-suppress_comment= \\(.\\|\n\\)*\\flow-disable-line
+suppress_comment=.*\\$FlowFixMe
 module.name_mapper='^config\/\(.*\)' -> '<PROJECT_ROOT>/src/config/\1'
 module.name_mapper='^components\/\(.*\)' -> '<PROJECT_ROOT>/src/components/\1'
 module.name_mapper='^screens\/\(.*\)' -> '<PROJECT_ROOT>/src/screens/\1'
