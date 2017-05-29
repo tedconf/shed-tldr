@@ -2,9 +2,6 @@
 import React from 'react';
 import Shed, {
   createTheme,
-  /* eslint-disable no-unused-vars */
-  reset,
-  /* eslint-enable no-unused-vars */
 } from 'react-shed';
 import {
   ConnectedRouter as Router,
@@ -13,9 +10,10 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'glamorous';
 import { Provider } from 'react-redux';
 import { THEME as TED_THEME } from 'components/branding';
+import 'components/reset/index.css';
 
 const theme = createTheme(TED_THEME);
 

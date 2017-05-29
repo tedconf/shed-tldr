@@ -1,0 +1,12 @@
+:root {
+  --ted-black: #111111;
+  --ted-gray-dd: #333333;
+  --ted-gray-d: #666666;
+  --ted-gray: #999999;
+  --ted-gray-l: #CCCCCC;
+  --ted-gray-ll: #F6F6F6;
+  --ted-white: #FFFFFF;
+  --ted-red: #E62B1E;
+  --ted-orange: #FFAC00;
+  --ted-ff-sans: "Helvetica Neue Custom", 'Helvetica Neue', system;
+}

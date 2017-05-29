@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const cssnext = require('postcss-cssnext');
+const postcssImport = require('postcss-import');
 
 const DEVELOPMENT_CONFIG = require('./config/webpack.dev');
 const PRODUCTION_CONFIG = require('./config/webpack.prod');
@@ -42,7 +44,8 @@ const COMMON_CONFIG = {
       'react-router-dom',
       'react-router-redux',
       'redux',
-      'styled-components',
+      'glamorous',
+      'glamor',
     ],
   },
 
@@ -81,6 +84,17 @@ const COMMON_CONFIG = {
           },
           {
             loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcss: wp => ([
+                postcssImport({
+                  addDependencyTo: wp,
+                }),
+                cssnext(),
+              ]),
+            },
           },
         ],
       },
