@@ -14,6 +14,7 @@ import { ThemeProvider } from 'glamorous';
 import { Provider } from 'react-redux';
 import { THEME as TED_THEME } from 'components/branding';
 import 'components/reset/index.css';
+import HomeScreen from 'screens/home';
 
 const theme = createTheme(TED_THEME);
 
@@ -33,15 +34,7 @@ const Application = ({ store, history }: {
               exact
               path="/"
             >
-              <div>
-                <h1.shed
-                  f="3"
-                  fw="400"
-                  c="red"
-                >
-                  Hello!
-                </h1.shed>
-              </div>
+              <HomeScreen />
             </Route>
           </Switch>
         </Router>

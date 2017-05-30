@@ -38,9 +38,9 @@ const mapDispatchToProps = {
   }),
 };
 
-const Connected{{pascalCase componentName}} = compose(
+const Connected{{pascalCase ../componentName}} = compose(
   connect(mapStateToProps, mapDispatchToProps),
-)({{pascalCase componentName}});
+)({{pascalCase ../componentName}});
 
 {{/ifItem}}
 export {

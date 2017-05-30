@@ -12,4 +12,7 @@ declare type Action = {
   payload?: any,
 }
 
+declare type LayoutComponent = {
+  children: any,
+}
 /* eslint-enable */

@@ -3,7 +3,7 @@ import 'components/fonts/helvetica/index.css';
 
 const THEME = {
   sizes: 'minor third',
-  steps: 30,
+  steps: 31,
   colors: {
     black: '#111111',
     'gray-dd': '#333333',

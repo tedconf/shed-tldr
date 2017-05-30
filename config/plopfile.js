@@ -4,7 +4,7 @@ module.exports = (plop) => {
   const currentUser = passwdUser.sync().fullname;
 
   plop.addHelper('ifItem', (it, arr, options) => (
-    arr.indexOf(it) > -1 ? options.fn(this) : ''
+    arr.indexOf(it) > -1 ? options.fn(this) : options.inverse(this)
   ));
 
   plop.setGenerator('config', {
@@ -118,12 +118,13 @@ module.exports = (plop) => {
       },
     ],
   });
+
   plop.setGenerator('component', {
     decription: 'create a new component',
     prompts: [
       {
         type: 'input',
-        name: 'component_name',
+        name: 'componentName',
         message: 'What\'s the name of your component?',
         validate: value => (
           (/.+/).test(value) ? true : 'you must name your component'
@@ -150,19 +151,19 @@ module.exports = (plop) => {
     actions: [
       {
         type: 'add',
-        path: 'src/components/{{kebabCase componentName}}/{{kebabCase componentName}}.js',
+        path: '../src/components/{{kebabCase componentName}}/{{kebabCase componentName}}.js',
         templateFile: '../.templates/component.js',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: 'src/components/{{kebabCase componentName}}/index.js',
+        path: '../src/components/{{kebabCase componentName}}/index.js',
         templateFile: '../.templates/component_index.js',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: 'src/components/{{kebabCase componentName}}/{{kebabCase componentName}}.spec.js',
+        path: '../src/components/{{kebabCase componentName}}/{{kebabCase componentName}}.spec.js',
         templateFile: '../.templates/component.spec.js',
         abortOnFail: true,
       },
