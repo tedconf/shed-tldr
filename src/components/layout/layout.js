@@ -6,7 +6,7 @@ const Layout = ({
   children,
 }: LayoutComponent) => (
   <div.shed
-    bg="black"
+    bg="black.9"
   >
     {children}
   </div.shed>
