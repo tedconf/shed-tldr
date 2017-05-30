@@ -42,7 +42,7 @@ This app is built using the following tools:
 #### SUPPLEMENTARY
 
 - [React Shed](//ghub.io/react-shed)
-- [Styled Components](//ghub.io/styled-components)
+- [Glamorous](//ghub.io/glamorous)
 - [React Loadable](//ghub.io/react-loadable)
 - [React Media](//ghub.io/react-media) (our own build until they release
   a version with support for multiple queries)
