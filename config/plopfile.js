@@ -56,6 +56,12 @@ module.exports = (plop) => {
       {
         type: 'modify',
         path: '../package.json',
+        pattern: /"version": ".*"/,
+        template: '"version": "0.1.0"',
+      },
+      {
+        type: 'modify',
+        path: '../package.json',
         pattern: /--APP_DESC--/gi,
         template: '{{sentenceCase appDesc}}',
       },
@@ -159,6 +165,12 @@ module.exports = (plop) => {
         type: 'add',
         path: '../src/components/{{kebabCase componentName}}/index.js',
         templateFile: '../.templates/component_index.js',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../src/components/{{kebabCase componentName}}/{{kebabCase componentName}}.story.js',
+        templateFile: '../.templates/component.story.js',
         abortOnFail: true,
       },
       {
