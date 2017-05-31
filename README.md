@@ -4,12 +4,13 @@
 
 ```sh
 yarn install
+yarn generate config
 yarn start
 ```
 
 ## Use
 
-Start by cloning this repo. Next, run `yarn generate config`. This will walk
+Start by cloning this repo and running `yarn install`. Next, run `yarn generate config`. This will walk
 you through the necessary steps to create your configuration files and update
 the `README`. This gives you a bare-minimum starting point for your app.
 
