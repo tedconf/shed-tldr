@@ -6,12 +6,16 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 {{/ifItem}}
 
+type {{pascalCase componentName}}Component = {
+  sampleProp: string,
+};
+
 const {{pascalCase componentName}} = ({
-  sampleProp,
+  sampleProp = 'sample prop',
 {{#ifItem 'connected' componentFeatures}}
   sampleEffect,
 {{/ifItem}}
-}) => (
+}: {{pascalCase componentName}}Component) => (
   <div.shed>
     {sampleProp}
 {{#ifItem 'connected' componentFeatures}}
