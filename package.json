@@ -67,6 +67,7 @@
       "stage-0"
     ],
     "plugins": [
+      "shed",
       "syntax-dynamic-import",
       "syntax-flow",
       "transform-flow-strip-types",
@@ -75,6 +76,7 @@
     "env": {
       "development": {
         "plugins": [
+          "shed",
           "react-hot-loader/babel",
           "syntax-dynamic-import",
           "syntax-flow",
@@ -84,6 +86,7 @@
       },
       "production": {
         "plugins": [
+          "shed",
           [
             "lodash",
             {
@@ -107,6 +110,7 @@
           "stage-0"
         ],
         "plugins": [
+          "shed",
           "react-hot-loader/babel",
           "syntax-dynamic-import",
           "syntax-flow",
@@ -198,6 +202,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
+    "color-string": "1.5.x",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
@@ -226,7 +231,7 @@
     "prop-types": "^15.5.10",
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^1.0.1",
-    "redux-devtools-extension": "2.13.x",
+    "redux-devtools-extension": "^2.13.2",
     "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
     "webpack": "2.x.x",
@@ -238,24 +243,23 @@
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.5",
-    "color": "^1.0.3",
-    "glamor": "^2.20.25",
+    "glamor": "2.20.x",
     "glamorous": "3.19.x",
     "modularscale": "^2.0.1",
     "offline-plugin": "^4.7.0",
-    "react": "15.5.x",
-    "react-dom": "15.5.x",
+    "react": "15.x.x",
+    "react-dom": "15.x.x",
     "react-hot-loader": "next",
-    "react-loadable": "3.3.x",
+    "react-loadable": "3.x.x",
     "react-media": "vinspee/react-media#d6d66c97378067d5c0907bdb2f9d81b90ff7c9a4",
     "react-redux": "5.x.x",
     "react-router": "4.x.x",
     "react-router-dom": "4.x.x",
-    "react-router-redux": "5.0.0-alpha.6",
-    "react-shed": "3.0.0-alpha.5",
+    "react-router-redux": "5.0.0-alpha.4",
+    "react-shed": "3.0.0-alpha.6",
     "redux": "3.x.x",
-    "redux-action-types-creator": "1.1.x",
-    "redux-create-reducer": "1.1.x",
+    "redux-action-types-creator": "1.x.x",
+    "redux-create-reducer": "1.x.x",
     "redux-thunk": "2.x.x"
   }
 }

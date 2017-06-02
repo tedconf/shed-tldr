@@ -107,6 +107,26 @@ module.exports = (plop) => {
         pattern: /(.+redux.+,)/g,
         template: '{{#if isRedux}}$1{{else}}{{/if}}',
       },
+      // remove redux artifacts from index
+      {
+        type: 'modify',
+        path: '../src/index.js',
+        pattern: /(.+config\/.+)/g,
+        template: '{{#if isRedux}}$1{{else}}{{/if}}',
+      },
+      {
+        type: 'modify',
+        path: '../src/index.js',
+        pattern: /(.+store\/.+)/g,
+        template: '{{#if isRedux}}$1{{else}}{{/if}}',
+      },
+      {
+        type: 'modify',
+        path: '../src/index.js',
+        pattern: /(.+history\/.+)/g,
+        template: '{{#if isRedux}}$1{{else}}{{/if}}',
+      },
+      // remove redux config items
       ({ isRedux }) => {
         /*
          * move the current working directory to the plop file path

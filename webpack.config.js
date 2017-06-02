@@ -165,13 +165,13 @@ const COMMON_CONFIG = {
     }),
 
     new HTMLWebpackPlugin({
-      title: '--APP_NAME--',
+      title: 'Dudeman',
       template: './config/index.ejs',
     }),
 
     new HTMLWebpackPlugin({
       filename: '200.html',
-      title: '--APP_NAME--',
+      title: 'Dudeman',
       template: './config/index.ejs',
     }),
 
