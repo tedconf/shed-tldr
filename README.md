@@ -23,8 +23,16 @@ you to choose which features your component should have, as outlined below:
    It uses a `compose()` fn by default so you can easily add other HOCs.
 2. __Asynchronously Loaded.__ Should your component be fetched on demand rather
    than bundled into the core js file? This option wraps your component in a
-   [React Loadable](//ghub.io/react-loadable) component. Be sure to replace the
+   [React Loadable](http://ghub.io/react-loadable) component. Be sure to replace the
    `LoadingComponent` prop with your own.
+
+Each component gets an `index.js`, a `component.js`, a `component.spec.js`, and
+a `component.story.js`.
+
+- `index.js` is your component's entry point.
+- `component.js` is where your component's implementation lives.
+- `component.spec.js` is where your `jest`/`enzyme` tests go.
+- `component.story.js` is your component's entry into the `storybook`.
 
 ## Tools
 
@@ -32,19 +40,20 @@ This app is built using the following tools:
 
 #### CORE
 
-- [React](//ghub.io/react)
-- [React Router](//ghub.io/react-router)
-- [Redux](//ghub.io/redux)
-- [Jest](//ghub.io/jest)
-- [Enzyme](//ghub.io/enzyme)
-- [Webpack](//ghub.io/webpack)
+- [React](http://ghub.io/react)
+- [React Router](http://ghub.io/react-router)
+- [Redux](http://ghub.io/redux)
+- [Jest](http://ghub.io/jest)
+- [Enzyme](http://ghub.io/enzyme)
+- [Webpack](http://ghub.io/webpack)
 
 #### SUPPLEMENTARY
 
-- [React Shed](//ghub.io/react-shed)
-- [Glamorous](//ghub.io/glamorous)
-- [React Loadable](//ghub.io/react-loadable)
-- [React Media](//ghub.io/react-media) (our own build until they release
+- [React Shed](http://ghub.io/react-shed)
+- [Glamorous](http://ghub.io/glamorous)
+- [React Loadable](http://ghub.io/react-loadable)
+- [React Media](http://ghub.io/react-media) (our own build until they release
   a version with support for multiple queries)
-- [Redux Action Types Creator](//ghub.io/redux-action-types-creator)
-- [Redux Create Reducer](//ghub.io/redux-create-reducer)
+- [Redux Action Types Creator](http://ghub.io/redux-action-types-creator)
+- [Redux Create Reducer](http://ghub.io/redux-create-reducer)
+- [Storybook](//github.com/kadirahq/react-storybook)

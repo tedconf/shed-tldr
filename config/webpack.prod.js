@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OfflinePlugin = require('offline-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
@@ -12,63 +11,18 @@ const PRODUCTION_CONFIG = {
     client: [
       APP_PATH,
     ],
-    vendor: [
-      'preact',
-      'preact-compat',
-    ],
-  },
-
-  resolve: {
-    alias: {
-      // 'preact-compat': 'preact-compat',
-      // react: 'preact-compat',
-      // 'react-dom': 'preact-compat',
-    },
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        include: APP_PATH,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            babelrc: false,
-            presets: [
-              [
-                'es2015',
-                {
-                  modules: false,
-                },
-              ],
-              'react',
-              'stage-0',
-            ],
-            plugins: [
-              require('babel-plugin-shed'),
-              require('babel-plugin-transform-flow-strip-types'),
-              require('babel-plugin-syntax-flow'),
-              require('babel-plugin-transform-class-properties'),
-              require('babel-plugin-transform-object-rest-spread'),
-              require('babel-plugin-transform-runtime'),
-            ],
-          },
-        },
-      },
-    ],
   },
 
   output: {
     publicPath: '/',
     path: DIST_PATH,
     filename: '[name]-[chunkhash].bundle.js',
-    chunkFilename: '[id]-[chunkhash].bundle.js',
+    chunkFilename: '[name]-[chunkhash].bundle.js',
   },
 
   performance: {
-    maxAssetSize: 100,
-    maxEntrypointSize: 300,
+    maxAssetSize: 400000,
+    maxEntrypointSize: 400000,
     hints: 'warning',
   },
 
@@ -107,6 +61,18 @@ const PRODUCTION_CONFIG = {
       fileName: 'webpack-asset-manifest.json',
     }),
 
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+      quiet: true,
+    }),
+
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       children: true,
@@ -114,32 +80,23 @@ const PRODUCTION_CONFIG = {
       filename: 'vendor.[chunkhash:6].js',
     }),
 
-    new WebpackMd5Hash(),
-
     new PreloadWebpackPlugin(),
+
+    new webpack.NoEmitOnErrorsPlugin(),
 
     new OfflinePlugin({
       safeToUseOptionalCaches: true,
-
       caches: {
         main: [
-          '*-*.bundle.js',
-          'vendor.*.js',
-          'client.*.js',
-          'vendor.*.js',
+          '*.js',
         ],
         additional: [
-          'public/fonts/*',
           ':externals:',
         ],
         optional: [
           ':rest:',
         ],
       },
-
-      externals: [
-        'public/fonts/*',
-      ],
 
       ServiceWorker: {
         events: true,
@@ -153,6 +110,8 @@ const PRODUCTION_CONFIG = {
         },
       },
     }),
+
+    new WebpackMd5Hash(),
   ],
 };
 

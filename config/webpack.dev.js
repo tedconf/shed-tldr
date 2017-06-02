@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 
-
 const {
   HOT_ONLY_ENTRY,
   NODE_MODULES_PATH,

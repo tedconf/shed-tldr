@@ -51,7 +51,8 @@ const COMMON_CONFIG = {
 
   output: {
     path: DIST_PATH,
-    filename: '[name].js',
+    filename: 'bundle-[name].js',
+    chunkFilename: 'chunk-[name].js',
   },
 
   module: {
@@ -59,16 +60,35 @@ const COMMON_CONFIG = {
       {
         test: /\.js$/,
         include: APP_PATH,
+        exclude: NODE_MODULES_PATH,
         use: [
-          'babel-loader',
-          'eslint-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
+        ],
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        include: APP_PATH,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'public/fonts/[name].[ext]',
+            },
+          },
         ],
       },
       {
         test: /\.svg$/,
         include: APP_PATH,
         use: [
-          'babel-loader',
           'svg-react-loader',
         ],
       },

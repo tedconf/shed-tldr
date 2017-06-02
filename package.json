@@ -10,9 +10,10 @@
     "generate": "plop --plopfile config/plopfile.js",
     "gen": "yarn generate",
     "g": "yarn generate",
-    "start": "yarn dev",
+    "start": "run-p 'dev' 'storybook'",
     "dev": "env NODE_ENV=development webpack-dev-server",
-    "build": "rimraf dist && env NODE_ENV=production webpack --colors --display-provided-exports --display-used-exports",
+    "build-app": "rimraf dist && env NODE_ENV=production webpack --colors --display-provided-exports --display-used-exports",
+    "build": "run-p 'build-app' 'build-storybook'",
     "pretest": "yarn lint; yarn lint:typecheck",
     "lint": "eslint src",
     "lint:fix": "yarn lint -- --fix",
@@ -22,12 +23,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 2001",
-    "build-storybook": "build-storybook"
+    "build-storybook": "mkdir -p dist && build-storybook -o dist/storybook"
   },
   "jest": {
-    "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
-    },
     "moduleFileExtensions": [
       "js",
       "json"
@@ -50,40 +48,42 @@
       "node_modules",
       "src"
     ],
+    "moduleNameMapper": {
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/config/fileMock.js"
+    },
     "roots": [
       "<rootDir>/src"
     ]
   },
   "babel": {
     "presets": [
+      "react",
       [
         "es2015",
         {
           "modules": false
         }
       ],
-      "react",
       "stage-0"
     ],
     "plugins": [
-      "shed",
-      "transform-flow-strip-types",
+      "syntax-dynamic-import",
       "syntax-flow",
-      "babel-plugin-transform-class-properties",
-      "transform-object-rest-spread",
+      "transform-flow-strip-types",
       "transform-runtime"
     ],
     "env": {
-      "dev": {
+      "development": {
         "plugins": [
-          "react-hot-loader/babel"
+          "react-hot-loader/babel",
+          "syntax-dynamic-import",
+          "syntax-flow",
+          "transform-flow-strip-types",
+          "transform-runtime"
         ]
       },
       "production": {
         "plugins": [
-          "shed",
-          "transform-flow-strip-types",
-          "syntax-flow",
           [
             "lodash",
             {
@@ -92,16 +92,27 @@
                 "recompose"
               ]
             }
-          ],
-          "transform-react-constant-elements",
-          "transform-react-remove-prop-types"
+          ]
         ]
       },
       "test": {
         "presets": [
-          "es2015",
           "react",
+          [
+            "es2015",
+            {
+              "modules": false
+            }
+          ],
           "stage-0"
+        ],
+        "plugins": [
+          "react-hot-loader/babel",
+          "syntax-dynamic-import",
+          "syntax-flow",
+          "transform-flow-strip-types",
+          "transform-runtime",
+          "transform-es2015-modules-commonjs"
         ]
       }
     }
@@ -127,11 +138,13 @@
     },
     "parser": "babel-eslint",
     "extends": [
-      "plugin:flowtype/recommended",
-      "airbnb"
+      "airbnb",
+      "plugin:flowtype/recommended"
     ],
     "rules": {
       "react/no-unused-prop-types": 0,
+      "react/no-danger": 0,
+      "react/require-default-props": 0,
       "no-debugger": 1,
       "no-mixed-operators": 0,
       "no-nested-ternary": 0,
@@ -171,7 +184,9 @@
     "babel-jest": "^20.0.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-flow-react-proptypes": "^3.1.2",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-shed": "^1.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
@@ -179,8 +194,9 @@
     "babel-plugin-transform-react-constant-elements": "^6.9.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.4",
     "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.16.0",
+    "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
@@ -200,6 +216,7 @@
     "isparta": "^4.0.0",
     "jest": "^20.0.0",
     "lodash-webpack-plugin": "^0.11.3",
+    "npm-run-all": "^4.0.2",
     "passwd-user": "^2.1.0",
     "plop": "1.x.x",
     "postcss-cssnext": "^2.11.0",
@@ -210,6 +227,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^1.0.1",
     "redux-devtools-extension": "2.13.x",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
     "webpack": "2.x.x",
     "webpack-dev-server": "2.4.x",
