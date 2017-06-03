@@ -18,10 +18,15 @@ import HomeScreen from 'screens/home';
 
 const theme = createTheme(TED_THEME);
 
-const Application = ({ store, history }: {
-  store: Store,
-  history: History,
-}) => (
+const Application = (
+  {
+    store,
+    history
+  }: {
+    store: Store,
+    history: History,
+  }
+): React$Element<*> => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <div.shed

@@ -2,6 +2,7 @@
 module.exports = (plop) => {
   const passwdUser = require('passwd-user');
   const currentUser = passwdUser.sync().fullname;
+  const del = require('del');
 
   plop.addHelper('ifItem', (it, arr, options) => (
     arr.indexOf(it) > -1 ? options.fn(this) : options.inverse(this)
@@ -45,7 +46,9 @@ module.exports = (plop) => {
         message: 'Will your app use redux as its data store?',
       },
     ],
-    actions: [
+    actions: ({
+      isRedux,
+    }) => ([
       // set up package.json
       {
         type: 'modify',
@@ -107,27 +110,49 @@ module.exports = (plop) => {
         pattern: /(.+redux.+,)/g,
         template: '{{#if isRedux}}$1{{else}}{{/if}}',
       },
-      // remove redux artifacts from index
-      {
-        type: 'modify',
+      // copy index
+      isRedux
+      ? ({
+        type: 'add',
         path: '../src/index.js',
-        pattern: /(.+config\/.+)/g,
-        template: '{{#if isRedux}}$1{{else}}{{/if}}',
+        templateFile: '../.templates/index_connected.js',
+        abortOnFail: true,
+      })
+      : ({
+        type: 'add',
+        path: '../src/index.js',
+        templateFile: '../.templates/index.js',
+        abortOnFail: true,
+      }),
+      isRedux
+      ? {
+        type: 'add',
+        path: '../src/hot.js',
+        templateFile: '../.templates/hot_connected.js',
+        abortOnFail: true,
+      }
+      : {
+        type: 'add',
+        path: '../src/hot.js',
+        templateFile: '../.templates/hot.js',
+        abortOnFail: true,
       },
-      {
-        type: 'modify',
-        path: '../src/index.js',
-        pattern: /(.+store\/.+)/g,
-        template: '{{#if isRedux}}$1{{else}}{{/if}}',
-      },
-      {
-        type: 'modify',
-        path: '../src/index.js',
-        pattern: /(.+history\/.+)/g,
-        template: '{{#if isRedux}}$1{{else}}{{/if}}',
+      // copy application
+      isRedux
+      ? {
+        type: 'add',
+        path: '../src/components/application/index.js',
+        templateFile: '../.templates/application_connected.js',
+        abortOnFail: true,
+      }
+      : {
+        type: 'add',
+        path: '../src/components/application/index.js',
+        templateFile: '../.templates/application.js',
+        abortOnFail: true,
       },
       // remove redux config items
-      ({ isRedux }) => {
+      () => {
         /*
          * move the current working directory to the plop file path
          * this allows this action to work even when the generator is
@@ -137,12 +162,16 @@ module.exports = (plop) => {
           process.chdir(plop.getPlopfilePath());
 
           // custom function can be synchronous or async (by returning a promise)
-          const rimraf = require('rimraf');
-          rimraf('../src/config', () => `is_redux is false: ${isRedux}`);
+          del.sync([
+            '../src/config',
+            '../src/comoponents/application/module.js',
+          ], {
+            force: true,
+            dryRun: true,
+          });
         }
-        return isRedux;
       },
-    ],
+    ]),
   });
 
   plop.setGenerator('component', {
@@ -156,23 +185,23 @@ module.exports = (plop) => {
           (/.+/).test(value) ? true : 'you must name your component'
         ),
       },
-      {
+      ({ isRedux }) => ({
         type: 'checkbox',
         name: 'componentFeatures',
         message: 'What featrues does your component need?',
         choices: [
           {
-            name: 'Connected To The Redux Store',
-            value: 'connected',
-            checked: true,
-          },
-          {
             name: 'Asynchronously Loaded',
             value: 'asynch',
             checked: true,
           },
+          isRedux && ({
+            name: 'Connected To The Redux Store',
+            value: 'connected',
+            checked: true,
+          }),
         ],
-      },
+      }),
     ],
     actions: [
       {
