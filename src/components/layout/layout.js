@@ -2,6 +2,10 @@
 import React from 'react';
 import Shed from 'react-shed';
 
+declare type LayoutComponent = {
+  children: any,
+}
+
 const Layout = ({
   children,
 }: LayoutComponent) => (
