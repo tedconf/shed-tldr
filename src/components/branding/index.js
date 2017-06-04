@@ -2,8 +2,31 @@
 import React from 'react';
 import 'components/fonts/helvetica/index.css';
 
+declare type TEDColor =
+  'black'
+  | 'gray-dd'
+  | 'gray-d'
+  | 'gray'
+  | 'gray-l'
+  | 'gray-ll'
+  | 'white'
+  | 'red'
+  | 'orange'
+;
+
+declare type Theme = {
+  sizes: 'string',
+  steps: number,
+  colors: {
+    [color: TEDColor]: string,
+  },
+  fonts?: {
+    [x: string]: string,
+  },
+}
+
 declare type LogoComponent = {
-  color: 'red' | 'black' | 'white',
+  color: TEDColor,
 };
 
 const THEME = {
@@ -29,7 +52,9 @@ const THEME = {
 const Logo = ({
   color = 'red',
 }: LogoComponent) => {
-  const getColorFromTheme = colorName => THEME.colors[colorName] || colorName;
+  const getColorFromTheme = (colorName: TEDColor): string => (
+    THEME.colors[colorName] || colorName
+  );
 
   return (
     <svg
@@ -60,4 +85,3 @@ export {
   Logo,
   THEME,
 };
-
