@@ -20,7 +20,7 @@ stories.addDecorator(centered);
 
 stories
   .add('{{titleCase componentName}}', () => (
-    <{{pascalCase componentName}} sampleProp={text('Sample Prop')}/>
+    <{{pascalCase componentName}} sampleProp={text('Sample Prop')} />
   ))
 ;
 
