@@ -32,9 +32,9 @@ const store = createStore(
 
 
 if (process.env.NODE_ENV !== 'production' && module.hot) {
-  module.hot.accept('modules/application', () => {
+  module.hot.accept('components/application', () => {
     /* eslint-disable global-require */
-    store.replaceReducer(require('modules/application'));
+    store.replaceReducer(require('components/application').module);
     /* eslint-enable global-require */
   });
 }
