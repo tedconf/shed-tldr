@@ -8,7 +8,7 @@ import {
 } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
-import rootReducer from 'modules/application';
+import { reducer as applicationReducer } from 'components/application';
 
 const history = createHistory();
 
@@ -18,7 +18,7 @@ const middleware = [
 ];
 
 const store = createStore(
-  rootReducer,
+  applicationReducer,
   undefined,
   composeWithDevTools({
     actionCreators: {

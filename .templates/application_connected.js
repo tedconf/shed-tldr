@@ -21,11 +21,11 @@ const theme = createTheme(TED_THEME);
 const Application = (
   {
     store,
-    history
+    history,
   }: {
     store: Store,
     history: History,
-  }
+  },
 ): React$Element<*> => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
@@ -49,3 +49,4 @@ const Application = (
 );
 
 export default Application;
+export { default as reducer } from './module';
