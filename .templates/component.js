@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onEffectExecute: (attr) => ({
+  onEffectExecute: attr => ({
     type: 'SAMPLE_EFFECT',
     payload: attr,
   }),

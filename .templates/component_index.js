@@ -6,6 +6,11 @@ export default Loadable({
   loader: () => import('./{{kebabCase ../componentName}}'),
   LoadingComponent: () => <div>Loading {{titleCase ../componentName}}…</div>,
 });
+
+export {
+  default as ConnectedComponent,
+  Component,
+} from './{{kebabCase ../componentName}}';
 {{else}}
 export {
   default,

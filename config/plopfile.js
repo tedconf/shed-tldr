@@ -186,23 +186,23 @@ module.exports = (plop) => {
           (/.+/).test(value) ? true : 'you must name your component'
         ),
       },
-      ({ isRedux }) => ({
+      {
         type: 'checkbox',
         name: 'componentFeatures',
-        message: 'What featrues does your component need?',
+        message: 'Which features does your component need?',
         choices: [
           {
             name: 'Asynchronously Loaded',
             value: 'asynch',
             checked: true,
           },
-          isRedux && ({
+          {
             name: 'Connected To The Redux Store',
             value: 'connected',
             checked: true,
-          }),
+          },
         ],
-      }),
+      },
     ],
     actions: [
       {
