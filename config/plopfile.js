@@ -75,6 +75,14 @@ module.exports = (plop) => {
         template: '{{appAuthor}}',
       },
 
+      // set up reducer
+      {
+        type: 'modify',
+        path: '../src/components/application/action-types.js',
+        pattern: /--APP_NAME--/gi,
+        template: '{{uppercase appName}}',
+      },
+
       // set up readme
       {
         type: 'modify',
@@ -165,6 +173,7 @@ module.exports = (plop) => {
           return del.sync([
             '../src/config/',
             '../src/components/application/module.js',
+            '../src/components/application/action-types.js',
           ], {
             force: true,
           });

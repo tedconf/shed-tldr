@@ -1,9 +1,10 @@
+// @flow
 import React from 'react';
 import Shed from 'react-shed';
 import { Logo as TEDLogo } from 'components/branding';
 import Layout from 'components/layout';
 
-const HomeScreen = () => (
+const HomeScreen = (): React$Element<> => (
   <Layout>
     <div.shed w="10">
       <h1.shed>

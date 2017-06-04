@@ -14,7 +14,7 @@ declare type TEDColor =
   | 'orange'
 ;
 
-declare type Theme = {
+export type Theme = {
   sizes: 'string',
   steps: number,
   colors: {
@@ -25,8 +25,8 @@ declare type Theme = {
   },
 }
 
-declare type LogoComponent = {
-  color: TEDColor,
+export type LogoComponent = {
+  color?: TEDColor,
 };
 
 const THEME = {
