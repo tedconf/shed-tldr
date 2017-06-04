@@ -162,14 +162,15 @@ module.exports = (plop) => {
           process.chdir(plop.getPlopfilePath());
 
           // custom function can be synchronous or async (by returning a promise)
-          del.sync([
-            '../src/config',
-            '../src/comoponents/application/module.js',
+          return del.sync([
+            '../src/config/',
+            '../src/components/application/module.js',
           ], {
             force: true,
-            dryRun: true,
           });
         }
+
+        return 'retaining redux config';
       },
     ]),
   });
