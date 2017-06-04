@@ -80,7 +80,7 @@ module.exports = (plop) => {
         type: 'modify',
         path: '../src/components/application/action-types.js',
         pattern: /--APP_NAME--/gi,
-        template: '{{uppercase appName}}',
+        template: '{{constantCase appName}}',
       },
 
       // set up readme
