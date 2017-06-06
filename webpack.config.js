@@ -36,18 +36,25 @@ const config = {
 const COMMON_CONFIG = {
   entry: {
     vendor: [
+      // 'babel-runtime',
+      'classnames',
+      'glamor',
+      'glamorous',
+      'modularscale',
+      // 'offline-plugin',
       'react',
       'react-dom',
       'react-media',
-      'react-shed',
       'react-redux',
       'react-router',
       'react-router-dom',
       'react-router-redux',
+      'react-shed',
       'recompose',
       'redux',
-      'glamorous',
-      'glamor',
+      'redux-action-types-creator',
+      'redux-create-reducer',
+      'redux-thunk',
     ],
   },
 

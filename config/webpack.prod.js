@@ -3,6 +3,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OfflinePlugin = require('offline-plugin');
+const StatsPlugin = require('stats-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const { DIST_PATH, APP_PATH } = require('./paths');
 
@@ -112,6 +113,8 @@ const PRODUCTION_CONFIG = {
     }),
 
     new WebpackMd5Hash(),
+
+    new StatsPlugin('stats.json'),
   ],
 };
 
