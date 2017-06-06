@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { createReducer } from 'redux-create-reducer';
+import actionTypes from './action-types';
 
 export type ApplicationState = {
   initialized: boolean,

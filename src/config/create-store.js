@@ -8,7 +8,7 @@ import {
 } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
-import { reducer as applicationReducer } from 'components/application';
+import applicationReducer from 'components/application/module';
 
 const history = createHistory();
 
@@ -32,9 +32,9 @@ const store = createStore(
 
 
 if (process.env.NODE_ENV !== 'production' && module.hot) {
-  module.hot.accept('components/application', () => {
+  module.hot.accept('components/application/module', () => {
     /* eslint-disable global-require */
-    store.replaceReducer(require('components/application').module);
+    store.replaceReducer(require('components/application/module').default);
     /* eslint-enable global-require */
   });
 }

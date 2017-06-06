@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const cssnext = require('postcss-cssnext');
 const postcssImport = require('postcss-import');
+const pkg = require('./package.json');
 
 const DEVELOPMENT_CONFIG = require('./config/webpack.dev');
 const PRODUCTION_CONFIG = require('./config/webpack.prod');
@@ -43,6 +44,7 @@ const COMMON_CONFIG = {
       'react-router',
       'react-router-dom',
       'react-router-redux',
+      'recompose',
       'redux',
       'glamorous',
       'glamor',
@@ -118,18 +120,6 @@ const COMMON_CONFIG = {
           },
         ],
       },
-      {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        include: APP_PATH,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'public/fonts/[name].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
 
@@ -142,7 +132,6 @@ const COMMON_CONFIG = {
     alias: {
       components: path.resolve(APP_PATH, 'components'),
       config: path.resolve(APP_PATH, 'config'),
-      modules: path.resolve(APP_PATH, 'modules'),
     },
   },
 
@@ -165,13 +154,13 @@ const COMMON_CONFIG = {
     }),
 
     new HTMLWebpackPlugin({
-      title: 'Dudeman',
+      title: pkg.name,
       template: './config/index.ejs',
     }),
 
     new HTMLWebpackPlugin({
       filename: '200.html',
-      title: 'Dudeman',
+      title: pkg.name,
       template: './config/index.ejs',
     }),
 

@@ -1,17 +1,35 @@
 // @flow
 import React from 'react';
 import Shed from 'react-shed';
-import { Logo as TEDLogo } from 'components/branding';
+import {
+  compose,
+  lifecycle,
+} from 'recompose';
+import { connect } from 'react-redux';
 import Layout from 'components/layout';
+import appActions from 'components/application/action-creators';
 
 const HomeScreen = (): React$Element<> => (
   <Layout>
-    <div.shed w="10">
-      <h1.shed>
-        <TEDLogo />
-      </h1.shed>
-    </div.shed>
+    <h1.shed
+      f="4"
+    >
+      This is the home screen.
+    </h1.shed>
   </Layout>
 );
 
-export default HomeScreen;
+const mapDispatchToProps = {
+  initialize: appActions.initialize,
+};
+
+const withInitializer = compose(
+  connect(undefined, mapDispatchToProps),
+  lifecycle({
+    componentWillMount() {
+      this.props.initialize();
+    },
+  }),
+);
+
+export default withInitializer(HomeScreen);
