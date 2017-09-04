@@ -159,6 +159,19 @@ module.exports = (plop) => {
         templateFile: '../.templates/application.js',
         abortOnFail: true,
       },
+      isRedux
+      ? {
+        type: 'add',
+        path: '../src/screens/home/index.js',
+        templateFile: '../.templates/home_connected.js',
+        abortOnFail: true,
+      }
+      : {
+        type: 'add',
+        path: '../src/screens/home/index.js',
+        templateFile: '../.templates/home.js',
+        abortOnFail: true,
+      },
       // remove redux config items
       () => {
         /*
@@ -173,6 +186,7 @@ module.exports = (plop) => {
           return del.sync([
             '../src/config/',
             '../src/components/application/module.js',
+            '../src/components/application/action-creators.js',
             '../src/components/application/action-types.js',
           ], {
             force: true,
