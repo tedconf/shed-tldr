@@ -1,10 +1,10 @@
 {
-  "name": "new-app",
+  "name": "--APP_NAME--",
   "version": "0.1.0",
-  "description": "readme",
+  "description": "--APP_DESC--",
   "main": "index.js",
-  "repository": "http://github.com/tedconf/new-app",
-  "author": "Rômulo Machado",
+  "repository": "http://github.com/tedconf/--APP_NAME--",
+  "author": "--APP_AUTHOR--",
   "license": "MIT",
   "scripts": {
     "generate": "plop --plopfile config/plopfile.js",
