@@ -1,10 +1,10 @@
 {
-  "name": "--APP_NAME--",
+  "name": "shed-tldr",
   "version": "0.1.0",
-  "description": "--APP_DESC--",
+  "description": "quick lookup for shed classes",
   "main": "index.js",
-  "repository": "http://github.com/tedconf/--APP_NAME--",
-  "author": "--APP_AUTHOR--",
+  "repository": "http://github.com/tedconf/shed-tldr",
+  "author": "Rômulo Machado",
   "license": "MIT",
   "scripts": {
     "generate": "plop --plopfile config/plopfile.js",
@@ -239,7 +239,6 @@
     "prop-types": "^15.5.10",
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^1.0.1",
-    "redux-devtools-extension": "^2.13.2",
     "stats-webpack-plugin": "^0.6.0",
     "style-loader": "^0.17.0",
     "webpack": "2.x.x",
@@ -260,15 +259,9 @@
     "react-hot-loader": "next",
     "react-loadable": "3.x.x",
     "react-media": "vinspee/react-media#d6d66c97378067d5c0907bdb2f9d81b90ff7c9a4",
-    "react-redux": "5.x.x",
     "react-router": "4.x.x",
     "react-router-dom": "4.x.x",
-    "react-router-redux": "5.0.0-alpha.4",
     "react-shed": "3.0.0-alpha.6",
-    "recompose": "0.23.x",
-    "redux": "3.x.x",
-    "redux-action-types-creator": "1.x.x",
-    "redux-create-reducer": "1.x.x",
-    "redux-thunk": "2.x.x"
+    "recompose": "0.23.x"
   }
 }
