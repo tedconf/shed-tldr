@@ -2,6 +2,9 @@
 import React from 'react';
 import Shed from 'react-shed';
 import Layout from 'components/layout';
+import parsedShed from 'components/parse-css';
+
+console.log(parsedShed);
 
 const HomeScreen = (): React$Element<> => (
   <Layout>
