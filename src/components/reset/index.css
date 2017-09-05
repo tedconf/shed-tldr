@@ -10,6 +10,7 @@
   --white: var(--ted-white);
   --red: var(--ted-red);
   --orange: var(--ted-red);
+  --blue: var(--shed-blue);
   --ff-sans: var(--ted-ff-sans);
 }
 
@@ -137,7 +138,7 @@ sup {
 
 ::selection {
   background-color: var(--white);
-  color: var(--red);
+  color: var(--blue);
   text-shadow: none;
 }
 
@@ -414,14 +415,14 @@ sup {
 }
 
 ::-moz-selection {
-  background-color: var(--red);
-  color: var(--black);
+  background-color: var(--blue);
+  color: var(--white);
   text-shadow: none;
 }
 
 ::selection {
-  background-color: var(--red);
-  color: var(--black);
+  background-color: var(--blue);
+  color: var(--white);
   text-shadow: none;
 }
 

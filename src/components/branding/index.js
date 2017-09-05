@@ -12,6 +12,7 @@ declare type TEDColor =
   | 'white'
   | 'red'
   | 'orange'
+  | 'blue'
 ;
 
 export type Theme = {
@@ -42,9 +43,11 @@ const THEME = {
     white: '#FFFFFF',
     red: '#E62B1E',
     orange: '#FFAC00',
+    blue: '#0E1666',
   },
   fonts: {
     sans: '"Helvetica Neue Custom", system',
+    code: 'Consolas,monaco,monospace',
   },
 };
 

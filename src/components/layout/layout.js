@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import Shed from 'react-shed';
-import { Logo as TEDLogo } from 'components/branding';
 
 declare type LayoutComponent = {
   children: any,
@@ -13,16 +12,30 @@ const Layout = ({
   <div.shed
     h="full"
   >
-    <header.shed bg="black">
-      <div.shed w="10">
-        <div.shed>
-          <TEDLogo />
-        </div.shed>
-      </div.shed>
+    <header.shed
+      mx="14"
+      my="10"
+    >
+      <h1.shed
+        fw="700"
+        f="3"
+        c="blue"
+      >
+        shed tldr
+        <small.shed
+          fw="400"
+          f="1"
+          ml=".5"
+        >
+          v1.3.0
+        </small.shed>
+      </h1.shed>
     </header.shed>
     <main>
       <div.shed
-        p="1"
+        mx="14"
+        d="f"
+        jc="c"
       >
         {children}
       </div.shed>

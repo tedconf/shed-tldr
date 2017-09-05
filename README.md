@@ -1,6 +1,6 @@
-# --APP_NAME--
+# shed tldr
 
---APP_DESCRIPTION--
+Quick lookup for shed classes.
 
 ```sh
 yarn install
