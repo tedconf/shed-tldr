@@ -19,7 +19,6 @@ const Application = (): React$Element<*> => (
   <ThemeProvider theme={theme}>
     <div.shed
       ff="sans"
-      h="100vh"
     >
       <Router>
         <Switch>

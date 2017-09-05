@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Shed from 'react-shed';
+import { OpenSourceLogo } from 'components/branding';
 
 declare type LayoutComponent = {
   children: any,
@@ -9,9 +10,7 @@ declare type LayoutComponent = {
 const Layout = ({
   children,
 }: LayoutComponent) => (
-  <div.shed
-    h="full"
-  >
+  <div.shed>
     <header.shed
       mx="14"
       my="10"
@@ -40,6 +39,20 @@ const Layout = ({
         {children}
       </div.shed>
     </main>
+    <footer.shed
+      pos="a"
+      bottom="0"
+      w="full"
+      p="1"
+      d="f"
+      jc="f-e"
+    >
+      <div.shed
+        w="15"
+      >
+        <OpenSourceLogo />
+      </div.shed>
+    </footer.shed>
   </div.shed>
 );
 
