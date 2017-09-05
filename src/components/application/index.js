@@ -8,7 +8,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import { ThemeProvider } from 'glamorous';
+import { ThemeProvider } from 'theming';
 import { THEME as TED_THEME } from 'components/branding';
 import 'components/reset/index.css';
 import HomeScreen from 'screens/home';
