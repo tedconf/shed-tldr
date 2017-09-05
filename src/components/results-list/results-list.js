@@ -36,6 +36,8 @@ const ResultsList = ({
           jc="s-b"
           w="full"
           ai="c"
+          p="2"
+          bg={index % 2 !== 0 ? 'white' : 'gray-ll'}
         >
           <div.shed
             flxg="1"
