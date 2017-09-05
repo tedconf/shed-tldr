@@ -46,6 +46,7 @@ const Layout = ({
       p="1"
       d="f"
       jc="f-e"
+      bg="white"
     >
       <div.shed
         w="15"

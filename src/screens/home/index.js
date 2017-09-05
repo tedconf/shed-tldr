@@ -18,46 +18,51 @@ const HomeScreen = (): React$Element<> => (
         }}
         placeholder="search for a CSS property name or class name"
       />
-      <table.shed
-        ff="code"
-        w="full"
+      <div.shed
+        h="20"
+        o="s"
       >
-        <tbody.shed
+        <table.shed
+          ff="code"
           w="full"
         >
-          <tr.shed>
-            <td.shed
-              w="6of12"
-              p="4"
-            >
-            .aspect-ratio--16x9
-            </td.shed>
-            <td.shed
-              w="6of12"
-              p="4"
-            >
-            paddingBottom: 56.25%
-            </td.shed>
-          </tr.shed>
-
-          <tr.shed
-            bg="gray-ll"
+          <tbody.shed
+            w="full"
           >
-            <td.shed
-              w="6of12"
-              p="4"
+            <tr.shed>
+              <td.shed
+                w="6of12"
+                p="4"
+              >
+              .aspect-ratio--16x9
+              </td.shed>
+              <td.shed
+                w="6of12"
+                p="4"
+              >
+              paddingBottom: 56.25%
+              </td.shed>
+            </tr.shed>
+
+            <tr.shed
+              bg="gray-ll"
             >
-            .aspect-ratio--9x16
-            </td.shed>
-            <td.shed
-              w="6of12"
-              p="4"
-            >
-            paddingBottom: 177.77%
-            </td.shed>
-          </tr.shed>
-        </tbody.shed>
-      </table.shed>
+              <td.shed
+                w="6of12"
+                p="4"
+              >
+              .aspect-ratio--9x16
+              </td.shed>
+              <td.shed
+                w="6of12"
+                p="4"
+              >
+              paddingBottom: 177.77%
+              </td.shed>
+            </tr.shed>
+          </tbody.shed>
+        </table.shed>
+      </div.shed>
     </div.shed>
   </Layout>
 );
