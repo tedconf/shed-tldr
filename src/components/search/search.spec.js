@@ -1,9 +1,9 @@
-import { Component as SearchBox } from './search-box';
+import { Component as Search } from './search';
 
-describe('SearchBox', () => {
+describe('Search', () => {
   it('should render', () => {
     const actual = shallow(
-      <SearchBox />,
+      <Search />,
     );
     expect(actual).toMatchSnapshot();
   });

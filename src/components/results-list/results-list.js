@@ -14,10 +14,12 @@ declare type Result = {
 
 type ResultsListComponent = {
   results: Array<Result>,
+  highlightedIndex: number,
 };
 
 const ResultsList = ({
   results = [],
+  highlightedIndex,
 }: ResultsListComponent) => (
   <div.shed
     ff="code"
@@ -37,7 +39,7 @@ const ResultsList = ({
           w="full"
           ai="c"
           p="2"
-          bg={index % 2 !== 0 ? 'white' : 'gray-ll'}
+          bg={highlightedIndex === index ? 'red' : index % 2 !== 0 ? 'white' : 'gray-ll'}
         >
           <div.shed
             flxg="1"

@@ -12,15 +12,15 @@ import {
   // date,
 } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
-import { Component as SearchBox } from './';
+import { Component as Search } from './';
 
-const stories = storiesOf('Search Box', module);
+const stories = storiesOf('Search', module);
 stories.addDecorator(withKnobs);
 stories.addDecorator(centered);
 
 stories
-  .add('Search Box', () => (
-    <SearchBox sampleProp={text('Sample Prop')} />
+  .add('Search', () => (
+    <Search sampleProp={text('Sample Prop')} />
   ))
 ;
 
