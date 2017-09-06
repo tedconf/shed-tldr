@@ -15,6 +15,7 @@ const HomeScreen = (): React$Element<> => (
       <div.shed
         h="20"
         o="s"
+        mx=".6"
       >
         <ResultsList results={parsedShed} />
       </div.shed>

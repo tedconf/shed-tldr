@@ -49,16 +49,14 @@ const ResultsList = ({
             w="3/4"
           >
             {
-              map(
-                ({
-                  prop,
-                  value,
-                }) => (
-                  <div.shed key={`${prop}:${value}`}>
-                    {prop}: {value}
-                  </div.shed>
-                ),
-              )(results[index].rules)
+              map(({
+                prop,
+                value,
+              }) => (
+                <div.shed key={`${prop}:${value}`}>
+                  {prop}: {value}
+                </div.shed>
+              ))(results[index].rules)
             }
           </div.shed>
         </div.shed>

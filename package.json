@@ -13,7 +13,7 @@
     "start": "run-p 'dev' 'storybook'",
     "dev": "env NODE_ENV=development webpack-dev-server",
     "build-app": "del dist && env NODE_ENV=production webpack --colors --display-provided-exports --display-used-exports",
-    "build": "run-p 'build-app' 'build-storybook'",
+    "build": "run-s 'build-app' 'build-storybook'",
     "pretest": "yarn lint; yarn lint:typecheck",
     "lint": "eslint src",
     "lint:fix": "yarn lint -- --fix",
@@ -71,7 +71,8 @@
       "syntax-dynamic-import",
       "syntax-flow",
       "transform-flow-strip-types",
-      "transform-runtime"
+      "transform-runtime",
+      "emotion"
     ],
     "env": {
       "development": {
@@ -192,6 +193,7 @@
     "babel-eslint": "^7.2.1",
     "babel-jest": "^20.0.0",
     "babel-loader": "^7.0.0",
+    "babel-plugin-emotion": "^7.2.2",
     "babel-plugin-flow-react-proptypes": "^3.1.2",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-shed": "^1.0.0",

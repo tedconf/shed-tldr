@@ -5,30 +5,36 @@ import {
   compose,
   withStateHandlers,
 } from 'recompose';
-import styled from 'react-emotion';
+import { withTheme } from 'theming';
 
-const SearchInput = styled('input')({
-  border: '1px solid rgba(0,0,0,.2)',
-  outline: 'none',
-  width: '100%',
-  p: '.2',
-}, ({ theme }) => ({
-  fontFamily: theme.fonts.code,
-}));
+// const SearchInput = styled('input')`font-size: 16px`;
 
 declare type SearchBoxComponent = {
   value?: string,
   onSearchChange: (value: string) => void,
+  theme: {
+    fonts: *,
+    sizes: *,
+    colors: *,
+  },
 };
 
 const SearchBox = ({
   value = '',
   onSearchChange,
+  theme,
 }: SearchBoxComponent) => (
-  <SearchInput
+  <input
     placeholder="search for a CSS property name or class name"
     defaultValue={value}
     onChange={evt => onSearchChange(evt.currentTarget.value)}
+    css={{
+      width: '100%',
+      border: `1px solid ${theme.colors['gray-l']}`,
+      borderRadius: theme.sizes['z.4'],
+      fontFamily: theme.fonts.code,
+      padding: theme.sizes['z.2'],
+    }}
   />
 );
 
@@ -43,6 +49,7 @@ const ConnectedSearchBox = compose(
       }),
     },
   ),
+  withTheme,
 )(SearchBox);
 
 export {
