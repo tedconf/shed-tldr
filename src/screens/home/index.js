@@ -7,7 +7,7 @@ import Search from 'components/search';
 const HomeScreen = (): React$Element<> => (
   <Layout>
     <div.shed
-      w="8of12"
+      w="6of12"
     >
       <Search />
     </div.shed>

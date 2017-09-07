@@ -59,17 +59,11 @@ const Search = (
             placeholder: 'Search for a CSS property name or class name',
           })}
         />
-        <div.shed
-          h="20"
-          o="s"
-          mx=".6"
-        >
-          <ResultsList
-            results={items}
-            itemProps={getItemProps}
-            highlightedIndex={highlightedIndex}
-          />
-        </div.shed>
+        <ResultsList
+          results={items}
+          itemProps={getItemProps}
+          highlightedIndex={highlightedIndex}
+        />
       </div>
     )}
   </Downshift>
