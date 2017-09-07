@@ -40,18 +40,18 @@ const Layout = ({
       </div.shed>
     </main>
     <footer.shed
-      bottom="0"
-      w="full"
       p="1"
       d="f"
       jc="f-e"
       bg="white"
       css={{
         position: 'absolute',
+        bottom: '0',
+        right: '0',
       }}
     >
       <div.shed
-        w="15"
+        w="12"
       >
         <OpenSourceLogo />
       </div.shed>
