@@ -24,6 +24,7 @@ const ResultsList = ({
   <div.shed
     ff="code"
     w="full"
+    mt=".9"
   >
     <VirtualList
       width="100%"
