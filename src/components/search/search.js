@@ -51,7 +51,6 @@ const Search = (
           css={{
             width: '100%',
             border: `1px solid ${theme.colors['gray-l']}`,
-            borderRadius: theme.sizes['z.4'],
             fontFamily: theme.fonts.code,
             padding: theme.sizes['z.2'],
           }}
