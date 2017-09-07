@@ -15,18 +15,20 @@ declare type TEDColor =
   | 'blue'
 ;
 
-export type Theme = {
-  sizes: 'string',
-  steps: number,
-  colors: {
-    [color: TEDColor]: string,
-  },
-  fonts?: {
-    [x: string]: string,
-  },
-}
+/*
+ * declare type ThemeShape = {
+ *   sizes: 'string',
+ *   steps: number,
+ *   colors: {
+ *     [color: TEDColor]: string,
+ *   },
+ *   fonts?: {
+ *     [x: string]: string,
+ *   },
+ * };
+ */
 
-export type LogoComponent = {
+declare type LogoComponent = {
   color?: TEDColor,
 };
 

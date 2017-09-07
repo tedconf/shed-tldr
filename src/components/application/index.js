@@ -12,6 +12,7 @@ import { ThemeProvider } from 'theming';
 import { THEME as TED_THEME } from 'components/branding';
 import 'components/reset/index.css';
 import HomeScreen from 'screens/home';
+import ScaleScreen from 'screens/scale';
 
 const theme = createTheme(TED_THEME);
 
@@ -27,6 +28,12 @@ const Application = (): React$Element<*> => (
             path="/"
           >
             <HomeScreen />
+          </Route>
+          <Route
+            exact
+            path="/scale"
+          >
+            <ScaleScreen />
           </Route>
         </Switch>
       </Router>

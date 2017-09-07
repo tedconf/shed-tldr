@@ -2,6 +2,7 @@
 import React from 'react';
 import Shed from 'react-shed';
 import { OpenSourceLogo } from 'components/branding';
+import 'components/reset/index.css';
 
 declare type LayoutComponent = {
   children: any,
@@ -32,7 +33,6 @@ const Layout = ({
     </header.shed>
     <main>
       <div.shed
-        mx="14"
         d="f"
         jc="c"
       >
