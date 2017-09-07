@@ -26,9 +26,10 @@ const getItems = value => (
     ? matchSorter(parsedShed, value, {
       keys: [
         'selector',
+        item => item.rules.map(({ prop }) => prop),
       ],
     })
-    : parsedShed
+    : ''
 );
 
 const Search = (
