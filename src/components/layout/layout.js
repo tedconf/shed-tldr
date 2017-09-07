@@ -40,13 +40,15 @@ const Layout = ({
       </div.shed>
     </main>
     <footer.shed
-      pos="a"
       bottom="0"
       w="full"
       p="1"
       d="f"
       jc="f-e"
       bg="white"
+      css={{
+        position: 'absolute',
+      }}
     >
       <div.shed
         w="15"
