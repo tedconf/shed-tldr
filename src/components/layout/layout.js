@@ -15,7 +15,6 @@ const Layout = ({
     <header.shed
       mx="12"
       mt="8"
-      mb="14"
     >
       <h1.shed
         fw="700"

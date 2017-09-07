@@ -8,6 +8,7 @@ const HomeScreen = (): React$Element<> => (
   <Layout>
     <div.shed
       w="6of12"
+      mt="14"
     >
       <Search />
     </div.shed>
