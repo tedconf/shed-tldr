@@ -13,8 +13,9 @@ const Layout = ({
 }: LayoutComponent) => (
   <div.shed>
     <header.shed
-      mx="14"
-      my="10"
+      mx="12"
+      mt="8"
+      mb="14"
     >
       <h1.shed
         fw="700"
