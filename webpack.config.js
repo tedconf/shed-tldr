@@ -36,18 +36,16 @@ const config = {
 const COMMON_CONFIG = {
   entry: {
     vendor: [
-      // 'babel-runtime',
-      'classnames',
-      'glamor',
-      'glamorous',
+      'emotion',
+      'theming',
       'modularscale',
-      // 'offline-plugin',
       'react',
       'react-dom',
       'react-media',
       'react-router',
       'react-router-dom',
       'react-shed',
+      'ramda',
     ],
   },
 

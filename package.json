@@ -92,7 +92,7 @@
             "lodash",
             {
               "id": [
-                "lodash",
+                "ramda",
                 "recompose"
               ]
             }

@@ -47,7 +47,7 @@ const ScaleFontItem = (
     <span.shed
       d="i-b"
       px=".5"
-      css={{
+      style={{
         fontSize: `${size}rem`,
       }}
     >
@@ -67,7 +67,7 @@ const ScaleItem = (
     c={index < 1 ? 'blue' : 'white'}
     flxg="1"
     lh="d"
-    css={{
+    style={{
       height: `${size}rem`,
     }}
   >
