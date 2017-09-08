@@ -3,6 +3,7 @@ import React from 'react';
 import Shed from 'react-shed';
 import { OpenSourceLogo } from 'components/branding';
 import 'components/reset/index.css';
+import Nav from 'components/nav';
 
 declare type LayoutComponent = {
   children: any,
@@ -12,14 +13,12 @@ const Layout = ({
   children,
 }: LayoutComponent) => (
   <div.shed>
-    <header.shed
-      mx="12"
-      mt="8"
-    >
+    <header.shed>
       <h1.shed
         fw="700"
         f="3"
         c="blue"
+        mx=".5"
       >
         shed tldr
         <small.shed
@@ -30,6 +29,7 @@ const Layout = ({
           v1.3.0
         </small.shed>
       </h1.shed>
+      <Nav />
     </header.shed>
     <main>
       <div.shed

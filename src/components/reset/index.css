@@ -89,6 +89,7 @@ samp {
 }
 
 a {
+  color: currentColor;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
