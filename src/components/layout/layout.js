@@ -13,7 +13,12 @@ const Layout = ({
   children,
 }: LayoutComponent) => (
   <div.shed>
-    <header.shed>
+    <header.shed
+      d="f"
+      jc="s-b"
+      px="12"
+      pt="8"
+    >
       <h1.shed
         fw="700"
         f="3"

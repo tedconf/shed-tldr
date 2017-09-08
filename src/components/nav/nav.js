@@ -8,12 +8,12 @@ import {
 
 const items = [
   {
-    to: '/scale',
-    label: 'Scale',
+    to: '/',
+    label: 'Classes',
   },
   {
-    to: '/',
-    label: 'search',
+    to: '/scale',
+    label: 'Scales',
   },
 ];
 
@@ -25,39 +25,20 @@ const NavItem = ({
   label: string,
 }) => (
   <li.shed
-    flxg="1"
-    ta="c"
-    c="white"
+    ml="1"
+    c="blue"
   >
     <NavLink to={to}>{label}</NavLink>
   </li.shed>
 );
 
-/*
- * declare type NavComponent = {
- * };
- *
- */
-
 const Nav = () => (
-  <div.shed
-    px=".5"
-    bg="blue"
-    c="white"
-    tt="u"
-    fw="bold"
-    ff="code"
-    pt=".9"
+  <ul.shed
+    lst="n"
+    d="f"
   >
-    <ol.shed
-      pl="0"
-      lst="n"
-      my="0"
-      d="f"
-    >
-      {map(NavItem)(items)}
-    </ol.shed>
-  </div.shed>
+    {map(NavItem)(items)}
+  </ul.shed>
 );
 
 export {
