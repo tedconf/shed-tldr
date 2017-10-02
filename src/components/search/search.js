@@ -48,6 +48,7 @@ const Search = (
     }) => (
       <div>
         <input
+          autoFocus
           css={{
             width: '100%',
             border: `1px solid ${theme.colors['gray-l']}`,
